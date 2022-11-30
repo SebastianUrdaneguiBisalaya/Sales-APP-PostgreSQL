@@ -1,47 +1,12 @@
-# import os
-
-# import tkinter
-# from tkinter import *
-
-# from tkinter import Tk, PhotoImage, Label
-
-# window = tkinter.Tk()
-# window.title("Sales APP")
-
-# frame = tkinter.Frame(window)
-# frame.pack()
-
-# window.geometry("900x700")
-# window.config(bg="white")
-
-# # # Saving User Information
-# # user_info_frame = tkinter.LabelFrame(frame, text = "User Information")
-# # user_info_frame.grid(row=0, column=0)
-
-# # first_name_label = tkinter.Label(user_info_frame, text = "First Name")
-# # first_name_label.grid(row=0, column=0)
-
-# absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
-# absolute_image_path = os.path.join(absolute_folder_path, "./shadowmenu.png")
-
-# image_central = PhotoImage(file=absolute_image_path)
-# background = Label(window, image=image_central)
-# background.pack()
-# background.place(width=700,height=900, bordermode=OUTSIDE,
-#                  relx=0.001,rely=0.01) 
-# background.config(bg = "white")
-
-# # This function allows keep the app running
-# window.mainloop()
-
 import tkinter as tk
-from tkinter.font import BOLD
 import util.generic as ut1
 import os
 
 from tkinter import Frame
 from tkinter import messagebox
 from tkinter import Entry
+from tkinter import Button
+from tkinter import Label
 
 class ShadowMenu:
     
@@ -71,12 +36,23 @@ class ShadowMenu:
         label_icons_login = tk.Label(self.ventana, image=icons_login, bg = "#fcfcfc")
         label_icons_login.place(x=550, y = 335)
         
-        # frame = Frame(self.ventana, width=233, height=180, bg = "red")
-        # frame.place(x=601, y = 340)
+        introduce_name_user = Entry(self.ventana, width=25, fg = "black",
+                                    border=0, bg="#fcfcfc", font=("Inter", 11))
+        introduce_name_user.place(x=625, y=362)
         
-        # introduce_name_user = Entry(self.ventana, width=22, fg = "black",
-        #                             border=2, bg="white", font=("Inter", 11))
-        # introduce_name_user.place(x=645, y=365)
-        # introduce_name_user.insert(0, "Username")
+        introduce_password_user = Entry(self.ventana, width=25, fg="black",
+                                        border=0, bg="#fcfcfc", font=("Inter", 11))
+        introduce_password_user.place(x=625, y=448)
         
+        Frame(self.ventana, width=265,height=2.5, bg="#4FD377").place(x=570, y=390)
+        Frame(self.ventana, width=265, height=2.5, bg="#4FD377").place(x=570, y=480)
+        
+        Button(self.ventana, width=22,pady=7, text = "Iniciar Sesión", bg="#8EA55A", 
+               fg="white", border=0, font=("Inter", 12)).place(x=600,y=540)
+        
+        Button(self.ventana, text="o Regístrate si no tienes una cuenta",
+                               fg="black", bg="#fcfcfc", border=0,
+                               font=("Inter", 9)).place(x=600,y=590)
+        
+
         self.ventana.mainloop()
