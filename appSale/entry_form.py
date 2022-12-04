@@ -41,18 +41,18 @@ class ShadowMenu:
         introduce_name_user.place(x=625, y=362)
         
         introduce_password_user = Entry(self.ventana, width=25, fg="black",
-                                        border=0, bg="#fcfcfc", font=("Inter", 11))
+                                        border=0, bg="#fcfcfc", font=("Inter", 11), show="*")
         introduce_password_user.place(x=625, y=448)
         
         Frame(self.ventana, width=265,height=2.5, bg="#4FD377").place(x=570, y=390)
         Frame(self.ventana, width=265, height=2.5, bg="#4FD377").place(x=570, y=480)
         
         Button(self.ventana, width=22,pady=7, text = "Iniciar Sesión", bg="#8EA55A", 
-               fg="white", border=0, font=("Inter", 12)).place(x=600,y=540)
+               fg="white", border=0, font=("Inter", 12), relief="flat", cursor="hand2").place(x=600,y=540)
         
         Button(self.ventana, text="o Regístrate si no tienes una cuenta",
                                fg="black", bg="#fcfcfc", border=0,
-                               font=("Inter", 9)).place(x=600,y=590)
+                               font=("Inter", 9), cursor="hand2").place(x=600,y=590)
         
 
         self.ventana.mainloop()
