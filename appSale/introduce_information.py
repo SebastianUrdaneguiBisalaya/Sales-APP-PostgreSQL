@@ -1,3 +1,4 @@
+from tkinter import ttk
 import tkinter as tk
 import util.generic as ut1
 import os
@@ -89,10 +90,27 @@ class IntroduceInformationInForm:
         Entry(self.label_frame_3, width=8, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
               justify="center").pack(padx=6,pady=12, side="left")
         
-        label_frame_4 = LabelFrame(self.ventanasec, text="Producto", width=820, height=70, font=("Inter", 11), bg="#FFFFFF")
-        label_frame_4.place(x=94, y=495)
+        self.label_frame_4 = LabelFrame(self.ventanasec, text="Producto", width=820, height=70, font=("Inter", 11), bg="#FFFFFF")
+        self.label_frame_4.place(x=94, y=495)
+        
+        Label(self.label_frame_4, text = "Nombre del Producto:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
+        Entry(self.label_frame_4, width=14, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
+              justify="center").pack(padx=7,pady=12, side="left")
+        
+        Label(self.label_frame_4, text = "Categoría:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
+        info_category = tk.StringVar()
+        ttk.Combobox(
+              self.label_frame_4,
+              state = "readonly",
+              values = ["Alimentos", "Limpieza e Higiene", "Snacks", "Gaseosas"],
+              textvariable = info_category
+        ).pack(padx=6,pady=12, side="left")
+        
+        Label(self.label_frame_4, text = "Sub-Categoría:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
+        Entry(self.label_frame_4, width=15, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
+              justify="center").pack(padx=8,pady=12, side="left")
         
         
-        
+
         self.ventanasec.mainloop()
         
