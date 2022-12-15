@@ -1,14 +1,19 @@
 import tkinter as tk
 import util.generic as ut1
 import os
+import mysql.connector
 
 from tkinter import Frame
-from tkinter import messagebox
 from tkinter import Entry
 from tkinter import Button
 from tkinter import Label
+from tkinter import messagebox
 
 class ShadowMenu:
+    
+    global introduce_name_user 
+    global introduce_pasword_user
+
     
     def __init__(self):
         self.ventana = tk.Tk()
@@ -36,10 +41,12 @@ class ShadowMenu:
         label_icons_login = tk.Label(self.ventana, image=icons_login, bg = "#fcfcfc")
         label_icons_login.place(x=550, y = 335)
         
+        #introduce_name_user = tk.StringVar()
         introduce_name_user = Entry(self.ventana, width=25, fg = "black",
                                     border=0, bg="#fcfcfc", font=("Inter", 11))
         introduce_name_user.place(x=625, y=362)
         
+        #introduce_password_user = tk.StringVar()
         introduce_password_user = Entry(self.ventana, width=25, fg="black",
                                         border=0, bg="#fcfcfc", font=("Inter", 11), show="*")
         introduce_password_user.place(x=625, y=448)
@@ -47,8 +54,52 @@ class ShadowMenu:
         Frame(self.ventana, width=265,height=2.5, bg="#4FD377").place(x=570, y=390)
         Frame(self.ventana, width=265, height=2.5, bg="#4FD377").place(x=570, y=480)
         
+        
+        def insert_username_password_database():
+            bd = mysql.connector.connect(
+            host = "localhost",
+            port=3306,
+            user = "root",
+            passwd = "¡MessiRonaldoNeymar123789*",
+            db = "appsaletkinter"
+            )
+            
+            fcursor = bd.cursor()
+            sql = "INSERT INTO login (username, passwords) VALUES ('{0}', '{1}')".format(introduce_name_user.get(), introduce_password_user.get())
+            
+            try: 
+                fcursor.execute(sql)
+                bd.commit()
+                messagebox.showinfo(message="Registro exitoso", title = "Aviso")
+            except:
+                bd.rollback()
+                messagebox.showinfo(message="No registrado", title = "Aviso")
+            
+            bd.close()
+        
+        def validation_username_password_database():
+            bd = mysql.connector.connect(
+                host = "localhost",
+                port = 3306,
+                user = "root",
+                passwd = "¡MessiRonaldoNeymar123789*",
+                db = "appsaletkinter"
+            )
+            
+            fcursor = bd.cursor()
+            fcursor.execute("SELECT passwords FROM login WHERE username = '"+introduce_name_user.get()+"' and passwords = '"+introduce_password_user.get()+"'")
+            
+            if fcursor.fetchall():
+                messagebox.showinfo(message="Inicio de Sesión Correcta")
+            else:
+                messagebox.showinfo(message="Inicio de Sesión Incorrecta")
+                
+            bd.close()
+            
+        
         Button(self.ventana, width=22,pady=7, text = "Iniciar Sesión", bg="#8EA55A", 
-               fg="white", border=0, font=("Inter", 12), relief="flat", cursor="hand2").place(x=600,y=540)
+               fg="white", border=0, font=("Inter", 12), relief="flat", cursor="hand2",
+               command=validation_username_password_database).place(x=600,y=540)
         
         Button(self.ventana, text="o Regístrate si no tienes una cuenta",
                                fg="black", bg="#fcfcfc", border=0,
