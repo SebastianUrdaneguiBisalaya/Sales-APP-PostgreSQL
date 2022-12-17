@@ -2,8 +2,9 @@ from tkinter import ttk
 import tkinter as tk
 import util.generic as ut1
 import os
+from functools import partial
 
-
+from tkinter import *
 from tkinter import Frame
 from tkinter import Entry
 from tkinter import Button
@@ -12,6 +13,8 @@ from tkinter import LabelFrame
 
 from ttkbootstrap import DateEntry
 from ttkbootstrap import Combobox
+
+from util.functionsSales import destroy
 
 class IntroduceInformationInForm:
     def __init__(self):
@@ -37,7 +40,7 @@ class IntroduceInformationInForm:
                border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=652, y=599)
         
         Button(self.ventanasec, width=11, pady=4, text="Cerrar", bg="#CC4141", fg="white",
-               border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=799, y=599)
+               border=1,font=("Inter", 12), relief="flat", cursor="hand2", command=partial(destroy, self.ventanasec)).place(x=799, y=599)
         
     # Creating the main of secondary screen
         tk.Label(self.ventanasec, text="N° de Orden:", font=("Inter", 11), bg="#FFFFFF").place(x=94,y=209)
