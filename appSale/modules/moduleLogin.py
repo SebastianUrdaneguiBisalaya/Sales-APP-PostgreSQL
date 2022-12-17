@@ -25,18 +25,18 @@ class ShadowMenu:
         self.ventana.resizable(width=0,height=0)
         
         absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
-        absolute_image_path = os.path.join(absolute_folder_path, "./shadowmenu.png")
+        absolute_image_path = os.path.join(absolute_folder_path, "C:/Users/Fabrizio/Documents/PortfolioProjects/Sales-APP/Sales-APP-PostgreSQL/appSale/assets/assetsLogin/shadowmenu.png")
         
         logo = ut1.read_image(absolute_image_path, (561,700))
         label = tk.Label(self.ventana, image=logo, bg = "#fcfcfc")
         label.place(x=0,y=0,relwidth=0.62,relheight=1)
         
-        absolute_image_path_1 = os.path.join(absolute_folder_path, "./login.png")
+        absolute_image_path_1 = os.path.join(absolute_folder_path, "C:/Users/Fabrizio/Documents/PortfolioProjects/Sales-APP/Sales-APP-PostgreSQL/appSale/assets/assetsLogin/login.png")
         logo_login = ut1.read_image(absolute_image_path_1,(233,239))
         label_login = tk.Label(self.ventana, image=logo_login, bg="#fcfcfc")
         label_login.place(x=601, y=75)
         
-        absolute_image_path_2 = os.path.join(absolute_folder_path, "./iconsmenu.png")
+        absolute_image_path_2 = os.path.join(absolute_folder_path, "C:/Users/Fabrizio/Documents/PortfolioProjects/Sales-APP/Sales-APP-PostgreSQL/appSale/assets/assetsLogin/iconsmenu.png")
         icons_login = ut1.read_image(absolute_image_path_2, (224,134))
         label_icons_login = tk.Label(self.ventana, image=icons_login, bg = "#fcfcfc")
         label_icons_login.place(x=550, y = 335)

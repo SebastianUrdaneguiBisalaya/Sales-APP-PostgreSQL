@@ -1,10 +1,8 @@
-from appSale.entry_form import ShadowMenu
-from appSale.introduce_information import IntroduceInformationInForm
-from appSale.register_form import RegisterForm
-from appSale.dashboard import Dashboard
+from appSale.modules.moduleLogin import ShadowMenu
+from appSale.modules.moduleSales import IntroduceInformationInForm
+from appSale.modules.moduleRegisterUser import RegisterForm
 
 if __name__ == "__main__":
-    #ShadowMenu()
+    ShadowMenu()
     #IntroduceInformationInForm()
     #RegisterForm()
-    Dashboard()

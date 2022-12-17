@@ -3,11 +3,15 @@ import tkinter as tk
 import util.generic as ut1
 import os
 
+
 from tkinter import Frame
 from tkinter import Entry
 from tkinter import Button
 from tkinter import Label
 from tkinter import LabelFrame
+
+from ttkbootstrap import DateEntry
+from ttkbootstrap import Combobox
 
 class IntroduceInformationInForm:
     def __init__(self):
@@ -19,8 +23,7 @@ class IntroduceInformationInForm:
         self.ventanasec.resizable(width=0,height=0)
         
         absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
-        absolute_image_path = os.path.join(absolute_folder_path, "./imageIntroduceInfo.png")
-        
+        absolute_image_path = os.path.join(absolute_folder_path, "C:/Users/Fabrizio/Documents/PortfolioProjects/Sales-APP/Sales-APP-PostgreSQL/appSale/assets/assetsRegisterSales/imageIntroduceInfo.png")
         background_main = ut1.read_image(absolute_image_path, (1000,700))
         label_background_main = tk.Label(self.ventanasec, image=background_main, bg="#fcfcfc")
         label_background_main.place(x=0,y=0,
@@ -46,12 +49,12 @@ class IntroduceInformationInForm:
         self.label_frame_1 = LabelFrame(self.ventanasec, text="Orden", width=820, height=70, font=("Inter", 11), bg="#FFFFFF")
         self.label_frame_1.place(x=94, y=255)
         Label(self.label_frame_1, text = "Fecha de orden:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
-        Entry(self.label_frame_1, width=13, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
-              justify="center").pack(padx=12,pady=12, side="left")
+        DateEntry(self.label_frame_1, width=13, border=0, cursor="arrow",
+              bootstyle="success").pack(padx=6,pady=12, side="left")
         
         Label(self.label_frame_1, text = "Fecha de entrega:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
-        Entry(self.label_frame_1, width=13, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
-              justify="center").pack(padx=12,pady=12, side="left")
+        DateEntry(self.label_frame_1, width=13, border=0, cursor="arrow",
+              bootstyle="success").pack(padx=5,pady=12, side="left")
         
         Label(self.label_frame_1, text = "Modo de entrega:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
         Entry(self.label_frame_1, width=13, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
@@ -61,7 +64,7 @@ class IntroduceInformationInForm:
         self.label_frame_2.place(x=94,y=335)
         Label(self.label_frame_2, text = "Cliente:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
         Entry(self.label_frame_2, width=30, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
-              justify="center").pack(padx=22,pady=12, side="left")
+              justify="center").pack(padx=24,pady=12, side="left")
         
         Label(self.label_frame_2, text = "Segmento del cliente:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
         Entry(self.label_frame_2, width=30, fg="black", border=0, font=("Inter", 11), bg="#D9D9D9", cursor="arrow",
@@ -99,11 +102,18 @@ class IntroduceInformationInForm:
         
         Label(self.label_frame_4, text = "Categoría:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
         info_category = tk.StringVar()
-        ttk.Combobox(
-              self.label_frame_4,
-              state = "readonly",
-              values = ["Alimentos", "Limpieza e Higiene", "Snacks", "Gaseosas"],
-              textvariable = info_category
+      #   ttk.Combobox(
+      #         self.label_frame_4,
+      #         state = "readonly",
+      #         values = ["Alimentos", "Limpieza e Higiene", "Snacks", "Gaseosas"],
+      #         textvariable = info_category
+      #   ).pack(padx=6,pady=12, side="left")
+        Combobox(
+            self.label_frame_4,
+            state = "readonly",
+            values = ["Alimentos", "Limpieza e Higiene", "Snacks", "Gaseosas"],
+            textvariable = info_category,
+            bootstyle="success"
         ).pack(padx=6,pady=12, side="left")
         
         Label(self.label_frame_4, text = "Sub-Categoría:", bg="#FFFFFF", font=("Inter",11)).pack(padx=12,pady=12, side="left")
