@@ -14,7 +14,7 @@ def validation_username_password_database(introduce_name_user, introduce_passwor
         )
             
     fcursor = bd.cursor()
-    fcursor.execute("SELECT passwords FROM login WHERE username = '"+introduce_name_user.get()+"' and passwords = '"+introduce_password_user.get()+"'")
+    fcursor.execute("SELECT Passwords FROM registerUser WHERE Username = '"+introduce_name_user.get()+"' and Passwords = '"+introduce_password_user.get()+"'")
     
     if fcursor.fetchall():
         #messagebox.showinfo(message="Inicio de Sesión Correcta")

@@ -1,6 +1,5 @@
 from appSale.modules.moduleSales import IntroduceInformationInForm
 from appSale.modules.moduleRegisterUser import RegisterForm
-# from appSale.modules.moduleLogin import ShadowMenu
 
 import tkinter as tk
 import util.generic as ut1
@@ -22,7 +21,6 @@ class ShadowMenu:
     def __init__(self):
         self.ventana = tk.Tk()
         self.ventana.title("Sales APP")
-        # w, h = self.ventana.winfo_screenwidth(), self.ventana.winfo_screenheight()
         w,h = 900,700
         self.ventana.geometry("%dx%d+0+0" % (w, h))
         self.ventana.config(bg="#fcfcfc")
