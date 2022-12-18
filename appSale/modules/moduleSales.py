@@ -1,18 +1,16 @@
-from tkinter import ttk
+from tkinter import *
 import tkinter as tk
 import util.generic as ut1
 import os
 from functools import partial
 
-from tkinter import *
-from tkinter import Frame
 from tkinter import Entry
 from tkinter import Button
 from tkinter import Label
 from tkinter import LabelFrame
 
 from ttkbootstrap import DateEntry
-from ttkbootstrap import Combobox
+from ttkbootstrap import Combobox, Button
 
 from util.functionsSales import destroy
 
@@ -33,14 +31,20 @@ class IntroduceInformationInForm:
                                     relheight=1, relwidth=1)
         
     # Creating the button
-        Button(self.ventanasec, width=11, pady=4, text="Enviar", bg="#1F3DA7", fg="white",
-               border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=505, y=599)
+      #   Button(self.ventanasec, width=11, pady=4, text="Enviar", bg="#1F3DA7", fg="white",
+      #          border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=505, y=599)
+        Button(self.ventanasec, width=11, text="Enviar", bootstyle = "success",
+               cursor="hand2").place(x=505, y=599)
         
-        Button(self.ventanasec, width=11, pady=4, text="Limpiar", bg="#E8D051", fg="black",
-               border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=652, y=599)
+      #   Button(self.ventanasec, width=11, pady=4, text="Limpiar", bg="#E8D051", fg="black",
+      #          border=1,font=("Inter", 12), relief="flat", cursor="hand2").place(x=652, y=599)
+        Button(self.ventanasec, width=11, text="Limpiar", bootstyle = "warning",
+               cursor="hand2").place(x=652, y=599)
         
-        Button(self.ventanasec, width=11, pady=4, text="Cerrar", bg="#CC4141", fg="white",
-               border=1,font=("Inter", 12), relief="flat", cursor="hand2", command=partial(destroy, self.ventanasec)).place(x=799, y=599)
+      #   Button(self.ventanasec, width=11, pady=4, text="Cerrar", fg="white",
+      #          border=1,font=("Inter", 12), relief="flat", cursor="hand2", command=partial(destroy, self.ventanasec)).place(x=799, y=599)
+        Button(self.ventanasec, width=11, text="Cerrar", bootstyle = "danger",
+               cursor="hand2", command=partial(destroy, self.ventanasec)).place(x=799, y=599)
         
     # Creating the main of secondary screen
         tk.Label(self.ventanasec, text="N° de Orden:", font=("Inter", 11), bg="#FFFFFF").place(x=94,y=209)
