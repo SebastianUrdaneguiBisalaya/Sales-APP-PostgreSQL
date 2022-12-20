@@ -22,6 +22,15 @@ class RegisterForm:
         w, h = 450, 700
         self.ventanaR.geometry("%dx%d+0+0" % (w, h))
         self.ventanaR.config(bg="#fcfcfc")
+        
+        wtotal = self.ventanaR.winfo_screenwidth()
+        htotal = self.ventanaR.winfo_screenheight()
+        wventana = 450
+        hventana = 700
+        pwidth = round(wtotal/2-wventana/2)
+        pheight = round(htotal/2-hventana/2)
+        self.ventanaR.geometry(str(wventana)+"x"+str(hventana)+"+"+str(pwidth)+"+"+str(pheight))
+        
         self.ventanaR.resizable(width=0, height=0)
         
         absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
